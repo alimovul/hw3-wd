@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alexandru-Gabriel BUTOI | CV</title>
+    <meta name="description" content="CV of Alexandru-Gabriel BUTOI — Computer Science student at West University of Timișoara. Skills, education, projects, awards and experience.">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +42,8 @@
             margin-bottom: 8px; font-size: 0.82rem;
             display: flex; align-items: flex-start; gap: 6px;
         }
-        .cv-contact-list a { color: var(--color-link); word-break: break-all; font-weight: 600; }
+        .cv-contact-list a { color: var(--color-link); word-break: break-all; font-weight: 600; text-decoration: underline; }
+        .timeline-sub a { text-decoration: underline; }
         .cv-widget {
             background: var(--color-surface);
             border: 1px solid var(--color-border);
@@ -115,7 +117,7 @@
         .project-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
         @media (min-width: 480px) { .project-grid { grid-template-columns: 1fr 1fr; } }
         .proj-entry { background: #f0ebff; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 13px; }
-        .proj-entry h4 { color: var(--color-primary); margin-bottom: 4px; font-size: 0.88rem; }
+        .proj-entry h3.proj-title { color: var(--color-primary); margin-bottom: 4px; font-size: 0.88rem; }
         .proj-entry p  { color: #4b5563; font-size: 0.80rem; margin: 0 0 7px; }
         .proj-tags { display: flex; flex-wrap: wrap; gap: 4px; }
         .proj-tag { background: #ede9fe; color: #5b21b6; border-radius: 999px; padding: 1px 8px; font-size: 0.70rem; font-weight: 700; }
@@ -180,27 +182,27 @@
                     <ul class="skill-bars" aria-label="Skill proficiency levels">
                         <li>
                             <div class="skill-label"><span>C++</span><span>Advanced</span></div>
-                            <div class="skill-track" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="C++ 85%"><div class="skill-fill" style="width:85%"></div></div>
+                            <div class="skill-track"><div class="skill-fill" style="width:85%" role="img" aria-label="C++ proficiency: 85%"></div></div>
                         </li>
                         <li>
                             <div class="skill-label"><span>Python</span><span>Intermediate</span></div>
-                            <div class="skill-track" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="Python 70%"><div class="skill-fill" style="width:70%"></div></div>
+                            <div class="skill-track"><div class="skill-fill" style="width:70%" role="img" aria-label="Python proficiency: 70%"></div></div>
                         </li>
                         <li>
                             <div class="skill-label"><span>HTML / CSS</span><span>Proficient</span></div>
-                            <div class="skill-track" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="HTML/CSS 75%"><div class="skill-fill" style="width:75%"></div></div>
+                            <div class="skill-track"><div class="skill-fill" style="width:75%" role="img" aria-label="HTML/CSS proficiency: 75%"></div></div>
                         </li>
                         <li>
                             <div class="skill-label"><span>JavaScript</span><span>Intermediate</span></div>
-                            <div class="skill-track" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="JavaScript 60%"><div class="skill-fill" style="width:60%"></div></div>
+                            <div class="skill-track"><div class="skill-fill" style="width:60%" role="img" aria-label="JavaScript proficiency: 60%"></div></div>
                         </li>
                         <li>
                             <div class="skill-label"><span>Git / GitHub</span><span>Proficient</span></div>
-                            <div class="skill-track" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" aria-label="Git 72%"><div class="skill-fill" style="width:72%"></div></div>
+                            <div class="skill-track"><div class="skill-fill" style="width:72%" role="img" aria-label="Git/GitHub proficiency: 72%"></div></div>
                         </li>
                         <li>
                             <div class="skill-label"><span>FastAPI / SQLite</span><span>Beginner</span></div>
-                            <div class="skill-track" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" aria-label="FastAPI 45%"><div class="skill-fill" style="width:45%"></div></div>
+                            <div class="skill-track"><div class="skill-fill" style="width:45%" role="img" aria-label="FastAPI/SQLite proficiency: 45%"></div></div>
                         </li>
                     </ul>
                 </div>
@@ -350,22 +352,22 @@
                     <h2 class="cv-section-title"><span class="title-icon" aria-hidden="true">&#128640;</span>Key Projects</h2>
                     <div class="project-grid">
                         <div class="proj-entry">
-                            <h4>SmartShift v3.0</h4>
+                            <h3 class="proj-title">SmartShift v3.0</h3>
                             <p>Automatic shift-planning system tailored to Romanian labour law constraints.</p>
                             <div class="proj-tags"><span class="proj-tag">React</span><span class="proj-tag">FastAPI</span><span class="proj-tag">OR-Tools</span></div>
                         </div>
                         <div class="proj-entry">
-                            <h4>OSUT-o-matic Bot</h4>
+                            <h3 class="proj-title">OSUT-o-matic Bot</h3>
                             <p>Telegram broadcast bot with subscriber management &amp; persistent storage on Oracle Cloud.</p>
                             <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Telegram API</span><span class="proj-tag">SQLite</span></div>
                         </div>
                         <div class="proj-entry">
-                            <h4>Benchmark Framework</h4>
+                            <h3 class="proj-title">Benchmark Framework</h3>
                             <p>Comparative benchmarking for algorithms &amp; data structures with scalability analysis.</p>
                             <div class="proj-tags"><span class="proj-tag">C++</span><span class="proj-tag">STL</span><span class="proj-tag">chrono</span></div>
                         </div>
                         <div class="proj-entry">
-                            <h4>Portfolio Website</h4>
+                            <h3 class="proj-title">Portfolio Website</h3>
                             <p>Multi-page accessible site with chatbot, forms, and responsive design on GitHub Pages.</p>
                             <div class="proj-tags"><span class="proj-tag">HTML5</span><span class="proj-tag">CSS3</span><span class="proj-tag">JavaScript</span></div>
                         </div>
@@ -392,7 +394,7 @@
                         <span class="award-chip mention">&#10003; Olimpiada Jude&#x21b;ean&#259; Matematic&#259; 2022 &mdash; Men&#x21b;iune</span>
                         <span class="award-chip mention">&#10003; Olimpiada Informatic&#259; Jude&#x21b;ean&#259; 2018 &mdash; Men&#x21b;iune</span>
                         <span class="award-chip mention">&#10003; Concurs Interj. Matematic&#259; &ldquo;Traian Lalescu&rdquo; 2018 &mdash; Men&#x21b;iune</span>
-                        <span class="award-chip mention">&#10003; Festival Internațional Book-Trailers 2024 &mdash; Men&#x21b;iune</span>
+                        <span class="award-chip mention">&#10003; Festival Book-Trailers 2024 &mdash; Men&#x21b;iune</span>
                         <span class="award-chip mention">&#128196; Olimpiada Na&#x21b;ional&#259; Matematic&#259; 2018 &mdash; Participare</span>
                     </div>
                 </div>
