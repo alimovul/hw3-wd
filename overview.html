@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexandru-Gabriel BUTOI | Portfolio Overview</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-areas:
+                "profile"
+                "skills"
+                "projects"
+                "contact";
+            gap: 24px;
+        }
+
+        .ov-profile { grid-area: profile; }
+        .ov-skills  { grid-area: skills; }
+        .ov-projects{ grid-area: projects; }
+        .ov-contact { grid-area: contact; }
+
+        .profile-flex {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .profile-photo {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #7c3aed;
+            box-shadow: 0 8px 18px rgba(124,58,237,0.22);
+            flex-shrink: 0;
+        }
+
+        .profile-info h2 {
+            margin-bottom: 6px;
+            color: #312e81;
+        }
+
+        .profile-info p {
+            color: #374151;
+            margin-bottom: 0;
+            max-width: 500px;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+            margin-top: 12px;
+        }
+
+        .skill-tag {
+            background: #ede9fe;
+            color: #5b21b6;
+            border: 1px solid #c4b5fd;
+            border-radius: 999px;
+            padding: 6px 14px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            transition: background 0.2s, transform 0.15s;
+        }
+
+        .skill-tag:hover {
+            background: #7c3aed;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .proj-card {
+            background: #ffffff;
+            border: 1px solid #ddd6fe;
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .proj-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(124,58,237,0.14);
+        }
+
+        .proj-card h3 {
+            color: #312e81;
+            margin-bottom: 0;
+            font-size: 1.05rem;
+        }
+
+        .proj-card p {
+            color: #4b5563;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .proj-card .proj-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .proj-card .tech-tag {
+            background: #f5f3ff;
+            color: #7c3aed;
+            border-radius: 6px;
+            padding: 3px 8px;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+
+        .proj-card .proj-status {
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-top: auto;
+            padding-top: 8px;
+        }
+
+        .proj-card.featured {
+            background: linear-gradient(135deg, #312e81 0%, #7c3aed 100%);
+            border-color: transparent;
+            color: #ffffff;
+        }
+
+        .proj-card.featured h3 {
+            color: #ffffff;
+        }
+
+        .proj-card.featured p {
+            color: #d4c9ff;
+        }
+
+        .proj-card.featured .tech-tag {
+            background: rgba(255,255,255,0.18);
+            color: #ffffff;
+        }
+
+        .proj-card.featured .proj-status {
+            color: #fbbf24;
+        }
+
+        .contact-flex {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #f5f3ff;
+            border: 1px solid #ddd6fe;
+            border-radius: 12px;
+            padding: 12px 18px;
+            text-decoration: none;
+            color: #5b21b6;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s, transform 0.15s;
+        }
+
+        .contact-item:hover {
+            background: #ede9fe;
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        .contact-icon {
+            font-size: 1.2rem;
+        }
+
+       @media (min-width: 700px) {
+            .overview-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-areas:
+                    "profile  profile"
+                    "skills   contact"
+                    "projects projects";
+            }
+
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1000px) {
+            .overview-grid {
+                grid-template-columns: 2fr 1fr;
+                grid-template-areas:
+                    "profile  contact"
+                    "skills   contact"
+                    "projects projects";
+            }
+
+            .cards-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>Portfolio Overview</h1>
+        <p>Profile, skills, projects, and contact &mdash; all in one place</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="cv.html">CV</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="overview.html">Overview</a></li>
+            <li><a href="card.html">Card</a></li>
+            <li><a href="chatbot.html">Chatbot</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+        <div class="overview-grid">
+
+            <section class="ov-profile">
+                <h2>Profile</h2>
+                <div class="profile-flex">
+                    <img
+                        src="photo.jpeg"
+                        alt="Alexandru-Gabriel BUTOI profile photo"
+                        class="profile-photo"
+                    >
+                    <div class="profile-info">
+                        <h2>Alexandru-Gabriel BUTOI</h2>
+                        <p>
+                            1st Year Computer Science student at the West University of Timi&#x219;oara.
+                            Passionate about low-level programming, algorithms, backend development, and
+                            building software that actually does something useful. Currently exploring
+                            web technologies alongside my core systems interests.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="ov-skills">
+                <h2>Skills</h2>
+                <ul class="skills-list">
+                    <li class="skill-tag">C++</li>
+                    <li class="skill-tag">Python</li>
+                    <li class="skill-tag">Algorithms</li>
+                    <li class="skill-tag">Data Structures</li>
+                    <li class="skill-tag">FastAPI</li>
+                    <li class="skill-tag">SQLite</li>
+                    <li class="skill-tag">HTML5</li>
+                    <li class="skill-tag">CSS3</li>
+                    <li class="skill-tag">JavaScript</li>
+                    <li class="skill-tag">Git & GitHub</li>
+                    <li class="skill-tag">Linux / WSL</li>
+                    <li class="skill-tag">Debugging</li>
+                    <li class="skill-tag">Reverse Engineering</li>
+                </ul>
+            </section>
+
+            <section class="ov-projects">
+                <h2>Projects</h2>
+                <div class="cards-grid">
+
+                    <div class="proj-card featured">
+                        <h3>SmartShift v3.0</h3>
+                        <p>Advanced shift-planning system with automatic schedule generation
+                           tailored to Romanian labor constraints.</p>
+                        <div class="proj-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">OR-Tools</span>
+                        </div>
+                        <span class="proj-status">In Development</span>
+                    </div>
+
+                    <div class="proj-card">
+                        <h3>OSUT-o-matic Bot</h3>
+                        <p>Telegram reminder broadcast bot with subscriber management
+                           and persistent storage, hosted on Oracle Cloud.</p>
+                        <div class="proj-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Telegram API</span>
+                            <span class="tech-tag">SQLite</span>
+                        </div>
+                        <span class="proj-status" style="color: #16a34a;">Active</span>
+                    </div>
+
+                    <div class="proj-card">
+                        <h3>Benchmark Framework</h3>
+                        <p>Comparative benchmarking for algorithms and data structures with
+                           execution-time measurement and scalability analysis.</p>
+                        <div class="proj-tech">
+                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">STL</span>
+                            <span class="tech-tag">chrono</span>
+                        </div>
+                        <span class="proj-status" style="color: #16a34a;">Active</span>
+                    </div>
+
+                    <div class="proj-card">
+                        <h3>OSUT Web Platform</h3>
+                        <p>Internal web interface with authentication, role-based access,
+                           dashboards, and admin workflows.</p>
+                        <div class="proj-tech">
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">HTMX</span>
+                            <span class="tech-tag">Jinja2</span>
+                        </div>
+                        <span class="proj-status" style="color: #d99706;">In Development</span>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="ov-contact">
+                <h2>Contact</h2>
+                <p>Feel free to reach out for collaboration, questions, or feedback.</p>
+                <div class="contact-flex">
+                    <a href="mailto:alexandru.butoi06@e-uvt.ro" class="contact-item">
+                        Email Me
+                    </a>
+                    <a href="https://github.com/alimovul" target="_blank" rel="noopener" class="contact-item">
+                        GitHub
+                    </a>
+                    <a href="contact.html" class="contact-item">
+                        Send a Message
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Alexandru-Gabriel BUTOI.</p>
+    </footer>
+
+</body>
+</html>

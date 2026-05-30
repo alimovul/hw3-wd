@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexandru-Gabriel BUTOI | Contact</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Patrick+Hand&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>Contact</h1>
+        <p>Feel free to contact me!</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="cv.html">CV</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="overview.html">Overview</a></li>
+            <li><a href="card.html">Card</a></li>
+            <li><a href="chatbot.html">Chatbot</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+        <section>
+            <h2>Contact Card</h2>
+
+            <div class="card-container" id="main-card">
+                <img src="photo.jpeg" alt="Alexandru-Gabriel BUTOI profile photo" id="profile-image">
+                <h3 id="full-name">Alexandru-Gabriel BUTOI</h3>
+                <p class="subtitle">Computer Science, 1st Year</p>
+                <p>
+                    <a href="mailto:alexandru.butoi06@e-uvt.ro" class="contact-link">
+                        alexandru.butoi06@e-uvt.ro
+                    </a>
+                </p>
+                <p>
+                    <a href="https://github.com/alimovul" target="_blank" rel="noopener" class="contact-link">
+                        github.com/alimovul
+                    </a>
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Send a Message</h2>
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Contact Me!</legend>
+
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+
+                    <label for="category">Category</label>
+                    <select id="category" name="category" required>
+                        <option value="">Select a category</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="question">Question</option>
+                        <option value="collab">Collaboration</option>
+                    </select>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+
+                    <button type="submit">Send!</button>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Alexandru-Gabriel BUTOI.</p>
+    </footer>
+
+</body>
+</html>

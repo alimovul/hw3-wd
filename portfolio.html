@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexandru-Gabriel BUTOI | Project Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-sm);
+        }
+
+        @media (min-width: 640px) {
+            .form-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .form-grid .full-width {
+                grid-column: 1 / -1;
+            }
+        }
+
+        .field-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .field-group label {
+            margin-top: 0;
+        }
+
+        .field-error {
+            color: #dc2626;
+            font-size: 0.8rem;
+            margin-top: 4px;
+            font-weight: 600;
+            min-height: 1.2em;
+            display: none;
+        }
+
+        .field-error.visible {
+            display: block;
+        }
+
+        input.invalid,
+        textarea.invalid,
+        select.invalid {
+            border-color: #dc2626 !important;
+            box-shadow: 0 0 0 3px rgba(220,38,38,0.15) !important;
+        }
+
+        input.valid,
+        textarea.valid,
+        select.valid {
+            border-color: #16a34a !important;
+        }
+
+        .char-count {
+            font-size: 0.78rem;
+            color: var(--color-muted);
+            text-align: right;
+            margin-top: 2px;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: var(--space-sm);
+        }
+
+        .btn-reset {
+            background: transparent;
+            color: var(--color-accent);
+            border: 2px solid var(--color-accent);
+            margin-top: 0;
+        }
+
+        .btn-reset:hover,
+        .btn-reset:focus {
+            background: var(--color-accent);
+            color: #fff;
+        }
+
+        .btn-submit {
+            margin-top: 0;
+        }
+
+        #success-banner {
+            display: none;
+            background: #dcfce7;
+            border: 1.5px solid #16a34a;
+            border-radius: var(--radius-md);
+            padding: 14px 20px;
+            color: #15803d;
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+            align-items: center;
+            gap: 10px;
+        }
+
+        #success-banner.visible {
+            display: flex;
+        }
+
+        .table-section {
+            display: none;
+        }
+
+        .table-section.visible {
+            display: block;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            min-width: 700px;
+        }
+
+        caption {
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--color-primary);
+            font-size: 1.05rem;
+            font-family: var(--font-display);
+            text-align: left;
+        }
+
+        th, td {
+            border: 1px solid var(--color-border);
+            padding: 12px 14px;
+            text-align: left;
+            vertical-align: middle;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: var(--color-pink);
+            color: #fff;
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        tr:nth-child(even) { background: var(--color-surface2); }
+        tr:nth-child(odd)  { background: #fff; }
+        tr:hover           { background: #fce7f3; }
+
+        .thumb {
+            width: 64px;
+            height: 64px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid var(--color-border);
+            display: block;
+        }
+
+        .thumb-placeholder {
+            width: 64px;
+            height: 64px;
+            border-radius: 8px;
+            background: var(--color-surface2);
+            border: 2px dashed var(--color-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--color-muted);
+        }
+
+        .tech-pill {
+            display: inline-block;
+            background: #ede9fe;
+            color: #5b21b6;
+            border-radius: 999px;
+            padding: 2px 9px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin: 2px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            border-radius: 999px;
+            padding: 3px 10px;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .status-active    { background: #dcfce7; color: #16a34a; }
+        .status-indev     { background: #fef9c3; color: #ca8a04; }
+        .status-completed { background: #dbeafe; color: #1d4ed8; }
+        .status-paused    { background: #f1f5f9; color: #64748b; }
+
+        td a {
+            color: var(--color-link);
+            word-break: break-all;
+        }
+
+        #project-count {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-pink);
+            color: #fff;
+            font-size: 0.78rem;
+            font-weight: 700;
+            border-radius: 999px;
+            min-width: 22px;
+            height: 22px;
+            padding: 0 6px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--color-pink);
+            outline-offset: 2px;
+        }
+
+        .field-hint {
+            font-size: 0.78rem;
+            color: var(--color-muted);
+            margin-top: 3px;
+        }
+
+        .table-empty {
+            text-align: center;
+            padding: 30px;
+            color: var(--color-muted);
+        }
+
+        @media (max-width: 600px) {
+            .form-actions { flex-direction: column; }
+            .form-actions button { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>Project Portfolio</h1>
+        <p>Submit and track your software engineering projects</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="cv.html">CV</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="overview.html">Overview</a></li>
+            <li><a href="card.html">Card</a></li>
+            <li><a href="chatbot.html">Chatbot</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+
+        <section aria-labelledby="form-heading">
+            <h2 id="form-heading">Add a Project</h2>
+            <p>Fill in the details below to add a project to your portfolio table.</p>
+
+            <div id="success-banner" role="alert" aria-live="polite">
+                <span aria-hidden="true">✅</span>
+                <span id="success-message">Project added successfully!</span>
+            </div>
+
+            <form id="project-form" novalidate aria-describedby="form-heading">
+                <fieldset>
+                    <legend>Project Details</legend>
+
+                    <div class="form-grid">
+
+                        <div class="field-group">
+                            <label for="proj-name">
+                                Project Name <span aria-hidden="true" style="color:#dc2626">*</span>
+                            </label>
+                            <input
+                                type="text"
+                                id="proj-name"
+                                name="proj-name"
+                                placeholder="e.g. SmartShift v3"
+                                maxlength="80"
+                                aria-required="true"
+                                aria-describedby="proj-name-error"
+                                autocomplete="off"
+                            >
+                            <span id="proj-name-error" class="field-error" role="alert">Please enter a project name (3–80 characters).</span>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="proj-status">
+                                Status <span aria-hidden="true" style="color:#dc2626">*</span>
+                            </label>
+                            <select
+                                id="proj-status"
+                                name="proj-status"
+                                aria-required="true"
+                                aria-describedby="proj-status-error"
+                            >
+                                <option value="">— Select status —</option>
+                                <option value="active">Active</option>
+                                <option value="indev">In Development</option>
+                                <option value="completed">Completed</option>
+                                <option value="paused">Paused</option>
+                            </select>
+                            <span id="proj-status-error" class="field-error" role="alert">Please select a status.</span>
+                        </div>
+
+                        <div class="field-group full-width">
+                            <label for="proj-desc">
+                                Description <span aria-hidden="true" style="color:#dc2626">*</span>
+                            </label>
+                            <textarea
+                                id="proj-desc"
+                                name="proj-desc"
+                                rows="3"
+                                maxlength="300"
+                                placeholder="Briefly describe what this project does…"
+                                aria-required="true"
+                                aria-describedby="proj-desc-error proj-desc-count"
+                            ></textarea>
+                            <div class="char-count"><span id="proj-desc-count">0</span>/300</div>
+                            <span id="proj-desc-error" class="field-error" role="alert">Please enter a description (10–300 characters).</span>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="proj-tech">
+                                Technologies <span aria-hidden="true" style="color:#dc2626">*</span>
+                            </label>
+                            <input
+                                type="text"
+                                id="proj-tech"
+                                name="proj-tech"
+                                placeholder="e.g. Python, FastAPI, SQLite"
+                                maxlength="120"
+                                aria-required="true"
+                                aria-describedby="proj-tech-error proj-tech-hint"
+                            >
+                            <span id="proj-tech-hint" class="field-hint">Separate with commas.</span>
+                            <span id="proj-tech-error" class="field-error" role="alert">Please list at least one technology.</span>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="proj-date">
+                                Completion / Start Date <span aria-hidden="true" style="color:#dc2626">*</span>
+                            </label>
+                            <input
+                                type="date"
+                                id="proj-date"
+                                name="proj-date"
+                                aria-required="true"
+                                aria-describedby="proj-date-error"
+                            >
+                            <span id="proj-date-error" class="field-error" role="alert">Please select a date.</span>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="proj-url">Project / Repo URL</label>
+                            <input
+                                type="url"
+                                id="proj-url"
+                                name="proj-url"
+                                placeholder="https://github.com/…"
+                                aria-describedby="proj-url-error proj-url-hint"
+                            >
+                            <span id="proj-url-hint" class="field-hint">Optional. Must start with https://</span>
+                            <span id="proj-url-error" class="field-error" role="alert">Please enter a valid URL starting with https://</span>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="proj-img">Thumbnail Image URL</label>
+                            <input
+                                type="url"
+                                id="proj-img"
+                                name="proj-img"
+                                placeholder="https://example.com/image.png"
+                                aria-describedby="proj-img-error proj-img-hint"
+                            >
+                            <span id="proj-img-hint" class="field-hint">Optional. Direct image link.</span>
+                            <span id="proj-img-error" class="field-error" role="alert">Please enter a valid image URL starting with https://</span>
+                        </div>
+
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">Add Project</button>
+                        <button type="button" id="btn-reset" class="btn-reset">Reset Form</button>
+                    </div>
+
+                </fieldset>
+            </form>
+        </section>
+
+        <section id="table-section" class="table-section" aria-labelledby="table-heading">
+            <h2 id="table-heading">
+                Submitted Projects
+                <span id="project-count" aria-label="0 projects">0</span>
+            </h2>
+            <p>All projects you have added during this session are displayed below.</p>
+
+            <div class="table-wrapper" role="region" aria-label="Submitted projects table" tabindex="0">
+                <table id="projects-table">
+                    <caption>Projects submitted via the portfolio form</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Thumbnail</th>
+                            <th scope="col">Project Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Technologies</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">URL</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="projects-tbody">
+                        <tr id="empty-row">
+                            <td colspan="7" class="table-empty">No projects added yet.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Alexandru-Gabriel BUTOI.</p>
+    </footer>
+
+    <script>
+    (() => {
+        'use strict';
+
+        const form        = document.getElementById('project-form');
+        const tbody       = document.getElementById('projects-tbody');
+        const tableSection = document.getElementById('table-section');
+        const countBadge  = document.getElementById('project-count');
+        const emptyRow    = document.getElementById('empty-row');
+        const successBanner = document.getElementById('success-banner');
+        const successMsg  = document.getElementById('success-message');
+        const btnReset    = document.getElementById('btn-reset');
+        const descTextarea = document.getElementById('proj-desc');
+        const descCount   = document.getElementById('proj-desc-count');
+
+        let projectCount = 0;
+        descTextarea.addEventListener('input', () => {
+            descCount.textContent = descTextarea.value.length;
+        });
+
+        const validators = {
+            'proj-name'  : v => v.trim().length >= 3 && v.trim().length <= 80,
+            'proj-status': v => v !== '',
+            'proj-desc'  : v => v.trim().length >= 10 && v.trim().length <= 300,
+            'proj-tech'  : v => v.trim().length >= 1,
+            'proj-date'  : v => v !== '',
+            'proj-url'   : v => v === '' || /^https:\/\/.+/.test(v.trim()),
+            'proj-img'   : v => v === '' || /^https:\/\/.+/.test(v.trim()),
+        };
+
+        function validateField(id) {
+            const input = document.getElementById(id);
+            const error = document.getElementById(id + '-error');
+            const valid = validators[id](input.value);
+
+            input.classList.toggle('invalid', !valid);
+            input.classList.toggle('valid',    valid);
+            input.setAttribute('aria-invalid', String(!valid));
+
+            if (error) {
+                error.classList.toggle('visible', !valid);
+            }
+            return valid;
+        }
+
+        Object.keys(validators).forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('blur', () => validateField(id));
+                el.addEventListener('input', () => {
+                    if (el.classList.contains('invalid')) validateField(id);
+                });
+            }
+        });
+
+        function showSuccess(name) {
+            successMsg.textContent = `"${name}" was added successfully!`;
+            successBanner.classList.add('visible');
+            successBanner.focus();
+            setTimeout(() => successBanner.classList.remove('visible'), 4000);
+        }
+
+        function buildTechPills(techStr) {
+            return techStr.split(',')
+                .map(t => t.trim()).filter(Boolean)
+                .map(t => `<span class="tech-pill">${escHtml(t)}</span>`)
+                .join('');
+        }
+
+        const STATUS_LABELS = {
+            active: 'Active', indev: 'In Development',
+            completed: 'Completed', paused: 'Paused'
+        };
+        function statusBadge(val) {
+            return `<span class="status-badge status-${escHtml(val)}">${escHtml(STATUS_LABELS[val] || val)}</span>`;
+        }
+
+        function escHtml(s) {
+            return String(s)
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        function formatDate(d) {
+            if (!d) return '—';
+            const [y, m, day] = d.split('-');
+            return `${day}/${m}/${y}`;
+        }
+
+        function addProjectRow(data) {
+            if (emptyRow) emptyRow.remove();
+
+            const tr = document.createElement('tr');
+            tr.setAttribute('data-project', String(++projectCount));
+
+            let thumbCell;
+            if (data.img) {
+                thumbCell = `<img src="${escHtml(data.img)}" alt="${escHtml(data.name)} thumbnail" class="thumb" loading="lazy" onerror="this.outerHTML='<div class=\\'thumb-placeholder\\' aria-hidden=\\'true\\'>🖼️</div>'">`;
+            } else {
+                thumbCell = `<div class="thumb-placeholder" aria-hidden="true">🖼️</div>`;
+            }
+
+            const urlCell = data.url
+                ? `<a href="${escHtml(data.url)}" target="_blank" rel="noopener noreferrer">${escHtml(data.url.replace(/^https?:\/\//, ''))}</a>`
+                : '—';
+
+            tr.innerHTML = `
+                <td>${thumbCell}</td>
+                <td><strong>${escHtml(data.name)}</strong></td>
+                <td>${escHtml(data.desc)}</td>
+                <td>${buildTechPills(data.tech)}</td>
+                <td>${escHtml(formatDate(data.date))}</td>
+                <td>${urlCell}</td>
+                <td>${statusBadge(data.status)}</td>
+            `;
+
+            tbody.appendChild(tr);
+
+            countBadge.textContent = String(projectCount);
+            countBadge.setAttribute('aria-label', `${projectCount} project${projectCount !== 1 ? 's' : ''}`);
+
+            tableSection.classList.add('visible');
+        }
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+
+            const fieldIds = Object.keys(validators);
+            const results  = fieldIds.map(id => validateField(id));
+            const allValid = results.every(Boolean);
+
+            if (!allValid) {
+                const firstInvalid = fieldIds.find((id, i) => !results[i]);
+                if (firstInvalid) document.getElementById(firstInvalid).focus();
+                return;
+            }
+
+            const data = {
+                name  : document.getElementById('proj-name').value.trim(),
+                status: document.getElementById('proj-status').value,
+                desc  : document.getElementById('proj-desc').value.trim(),
+                tech  : document.getElementById('proj-tech').value.trim(),
+                date  : document.getElementById('proj-date').value,
+                url   : document.getElementById('proj-url').value.trim(),
+                img   : document.getElementById('proj-img').value.trim(),
+            };
+
+            addProjectRow(data);
+            showSuccess(data.name);
+            form.reset();
+            descCount.textContent = '0';
+
+            fieldIds.forEach(id => {
+                const el = document.getElementById(id);
+                el.classList.remove('valid', 'invalid');
+                el.removeAttribute('aria-invalid');
+            });
+        });
+
+        btnReset.addEventListener('click', () => {
+            form.reset();
+            descCount.textContent = '0';
+            Object.keys(validators).forEach(id => {
+                const el = document.getElementById(id);
+                const err = document.getElementById(id + '-error');
+                el.classList.remove('valid', 'invalid');
+                el.removeAttribute('aria-invalid');
+                if (err) err.classList.remove('visible');
+            });
+            successBanner.classList.remove('visible');
+        });
+
+    })();
+    </script>
+
+</body>
+</html>

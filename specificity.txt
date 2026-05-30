@@ -1,0 +1,13 @@
+1. 
+Paragraf A: primeste doar stil din selector
+Paragraf B: primeste stil din p si din .info, dar .info (class selector) suprascrie ce este in p
+Paragraf C: primeste stil din p si din #warning, dar #warning (id selector) suprascrie.
+Paragraf D: Primeste din p, .info, #warning si #warning.info, pt fiecare se aplica cea mai specifica 
+ordinea ar fi urmatoarea : p (spec. mica), .info(mai mare), #warning(si mai mare), #warning.info(cea mai mare);
+
+2.
+Culoare: Se aplica darkorange din #warning.info pentru ca este cel mai specific selector
+Font: Se aplica 'Courier New' din #warning, deoarece #warning.info nu defineste font-family, iar #warning e mai specific decat
+p si .info
+
+

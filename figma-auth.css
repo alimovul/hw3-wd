@@ -1,0 +1,362 @@
+/* Login */
+
+position: relative;
+width: 2228px;
+height: 1325px;
+
+background: #5B86E5;
+
+
+/* Login */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 2228px;
+height: 1325px;
+left: 0px;
+top: 0px;
+
+background: #FFFFFF;
+border: 1px solid #DBDBDB;
+
+
+/* login-page */
+
+position: absolute;
+width: 2228px;
+height: 1325px;
+left: 0px;
+top: 0px;
+
+
+
+/* Rectangle 2 */
+
+position: absolute;
+width: 1920px;
+height: 1325px;
+left: 0px;
+top: 0px;
+
+background: rgba(63, 0, 105, 0.51);
+
+
+/* Rectangle 1 */
+
+position: absolute;
+width: 1580px;
+height: 1325px;
+left: 648px;
+top: 0px;
+
+background: #FFFFFF;
+border-radius: 50px;
+
+
+/* alexandru.butoi06@e-uvt.ro */
+
+position: absolute;
+width: 382px;
+height: 40px;
+left: 1175px;
+top: 550px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 25px;
+line-height: 40px;
+/* identical to box height, or 160% */
+letter-spacing: 0.08em;
+
+color: #000000;
+
+
+
+/* Sign-in */
+
+position: absolute;
+width: 194px;
+height: 40px;
+left: 1341px;
+top: 378px;
+
+font-family: 'Akshar';
+font-style: normal;
+font-weight: 400;
+font-size: 60px;
+line-height: 40px;
+/* identical to box height, or 67% */
+letter-spacing: 0.08em;
+
+color: #000000;
+
+
+
+/* login-content */
+
+position: absolute;
+width: 715px;
+height: 396px;
+left: 1010px;
+top: 550px;
+
+
+
+/* Don’t have an account? Signup Here */
+
+position: absolute;
+width: 455px;
+height: 40px;
+left: 1210px;
+top: 906px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 23px;
+line-height: 40px;
+/* identical to box height, or 174% */
+letter-spacing: 0.08em;
+
+color: #000000;
+
+
+
+/* input-name */
+
+position: absolute;
+width: 657px;
+height: 47px;
+left: 1068px;
+top: 550px;
+
+
+
+/* Bar_email */
+
+position: absolute;
+width: 657px;
+height: 47px;
+left: 1068px;
+top: 550px;
+
+
+
+/* Email */
+
+position: absolute;
+left: 0%;
+right: 89.19%;
+top: 0%;
+bottom: 14.89%;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 25px;
+line-height: 40px;
+/* identical to box height, or 160% */
+letter-spacing: 0.08em;
+
+color: #9D9D9D;
+
+
+
+/* Line 1 */
+
+position: absolute;
+left: 12.48%;
+right: 0%;
+top: 100%;
+bottom: 0%;
+
+border: 2px solid #9D9D9D;
+
+
+/* input-name */
+
+position: absolute;
+width: 715px;
+height: 51px;
+left: 1010px;
+top: 642px;
+
+
+
+/* Bar_pass */
+
+position: absolute;
+width: 715px;
+height: 51px;
+left: 1010px;
+top: 642px;
+
+
+
+/* Password */
+
+position: absolute;
+left: 0%;
+right: 81.82%;
+top: 0%;
+bottom: 21.57%;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 25px;
+line-height: 40px;
+/* identical to box height, or 160% */
+letter-spacing: 0.08em;
+
+color: #9D9D9D;
+
+
+
+/* Line 1 */
+
+position: absolute;
+left: 19.58%;
+right: 0%;
+top: 100%;
+bottom: 0%;
+
+border: 2px solid #9D9D9D;
+
+
+/* Bttn_login */
+
+position: absolute;
+width: 575px;
+height: 60px;
+left: 1150px;
+top: 807px;
+
+
+
+/* Rectangle 7 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #A34FED;
+border-radius: 8px;
+
+
+/* Login */
+
+position: absolute;
+left: 43.65%;
+right: 43.3%;
+top: 33.33%;
+bottom: 0%;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 25px;
+line-height: 40px;
+/* identical to box height, or 160% */
+letter-spacing: 0.08em;
+
+color: #FFFFFF;
+
+
+
+/* Bttn_login */
+
+position: absolute;
+width: 575px;
+height: 60px;
+left: 33px;
+top: 1201px;
+
+
+
+/* Rectangle 7 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #A34FED;
+border-radius: 8px;
+
+
+/* Login */
+
+position: absolute;
+left: 43.65%;
+right: 45.74%;
+top: 33.33%;
+bottom: 0%;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 25px;
+line-height: 40px;
+/* identical to box height, or 160% */
+letter-spacing: 0.08em;
+
+color: #FFFFFF;
+
+
+
+/* photo 1 */
+
+position: absolute;
+width: 612px;
+height: 612px;
+left: 14px;
+top: 511px;
+
+background: url(photo.jpg);
+
+
+/* Personal Portfolio Login Page */
+
+position: absolute;
+width: 519px;
+height: 294px;
+left: 59px;
+top: 146px;
+
+font-family: 'Akshar';
+font-style: normal;
+font-weight: 600;
+font-size: 90px;
+line-height: 108.97%;
+/* or 98px */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+
+
+
+/* •••••••••••• */
+
+position: absolute;
+width: 128px;
+height: 25px;
+left: 1167px;
+top: 649px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 22px;
+text-align: center;
+
+color: #000000;
+

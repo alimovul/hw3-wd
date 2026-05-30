@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexandru-Gabriel BUTOI | Homepage</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        .hero {
+            background: linear-gradient(135deg, #312e81 0%, #7c3aed 55%, #ec4899 100%);
+            border-radius: var(--radius-lg);
+            padding: 48px 36px;
+            margin-bottom: var(--space-md);
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            flex-wrap: wrap;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 16px 40px rgba(76,29,149,0.3);
+        }
+
+        .hero::before, .hero::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.12;
+            background: #fff;
+            pointer-events: none;
+        }
+        .hero::before { width: 280px; height: 280px; top: -80px; right: -60px; }
+        .hero::after  { width: 160px; height: 160px; bottom: -50px; left: 60px; }
+
+        .hero-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.7);
+            object-fit: cover;
+            box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50%       { transform: translateY(-8px); }
+        }
+
+        .hero-text { flex: 1; min-width: 200px; position: relative; z-index: 1; }
+
+        .hero-text h2 {
+            color: #fff;
+            font-size: 1.8rem;
+            margin-bottom: 6px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .hero-tagline {
+            color: rgba(255,255,255,0.85);
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .hero-badge {
+            background: rgba(255,255,255,0.18);
+            color: #fff;
+            border-radius: 999px;
+            padding: 5px 14px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(4px);
+        }
+
+        .typewriter {
+            display: inline;
+        }
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.1em;
+            background: var(--color-pink);
+            vertical-align: text-bottom;
+            margin-left: 2px;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0; }
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
+
+        .stat-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 20px 16px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: default;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--color-accent);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.82rem;
+            color: var(--color-muted);
+            font-weight: 600;
+        }
+
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: var(--space-sm);
+            margin-top: var(--space-sm);
+        }
+
+        .quick-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--color-surface);
+            border: 1.5px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 14px 18px;
+            text-decoration: none;
+            color: var(--color-text);
+            font-weight: 600;
+            transition: all 0.2s;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .quick-link:hover, .quick-link:focus {
+            border-color: var(--color-accent);
+            background: #ede9fe;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            text-decoration: none;
+            color: var(--color-primary);
+        }
+
+        .quick-link-icon {
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .quick-link-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .quick-link-title {
+            font-size: 0.9rem;
+            color: var(--color-primary);
+        }
+
+        .quick-link-sub {
+            font-size: 0.75rem;
+            color: var(--color-muted);
+            font-weight: 400;
+        }
+
+        .focus-list { list-style: none; padding: 0; margin: 0; }
+        .focus-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--color-border);
+            color: #374151;
+            font-size: 0.92rem;
+        }
+        .focus-list li:last-child { border-bottom: none; }
+        .focus-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+        .focus-dot.pink { background: var(--color-pink); }
+        .focus-dot.green { background: var(--color-green); }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(18px);
+            animation: fadeUp 0.55s ease forwards;
+        }
+        .fade-in:nth-child(1) { animation-delay: 0.05s; }
+        .fade-in:nth-child(2) { animation-delay: 0.15s; }
+        .fade-in:nth-child(3) { animation-delay: 0.25s; }
+        .fade-in:nth-child(4) { animation-delay: 0.35s; }
+        .fade-in:nth-child(5) { animation-delay: 0.45s; }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: none; }
+        }
+
+        .hero-highlight {
+            display: inline-block;
+            background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: "Patrick Hand", cursive;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        @media (max-width: 520px) {
+            .hero { padding: 32px 20px; }
+            .hero-text h2 { font-size: 1.4rem; }
+            .hero-avatar { width: 90px; height: 90px; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>Alexandru-Gabriel BUTOI</h1>
+        <p>Personal Portfolio &mdash; Computer Science Student, West University of Timi&#x219;oara, 1st Year</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="cv.html">CV</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="overview.html">Overview</a></li>
+            <li><a href="card.html">Card</a></li>
+            <li><a href="chatbot.html">Chatbot</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+
+        <div class="hero fade-in" role="banner" aria-label="Profile banner">
+            <img
+                src="photo.jpeg"
+                alt="Alexandru-Gabriel BUTOI"
+                class="hero-avatar"
+                loading="eager"
+            >
+            <div class="hero-text">
+                <h2>Hi, I'm Ali 👋</h2>
+                <p class="hero-tagline">
+                    Building things with
+                    <span id="typewriter-target" class="typewriter" aria-label="C++, Python, and the web">C++</span><span class="cursor" aria-hidden="true"></span>
+                </p>
+                <div class="hero-badges">
+                    <span class="hero-badge">🎓 CS @ UVT</span>
+                    <span class="hero-badge">🔧 1st Year</span>
+                    <span class="hero-badge">📍 Timișoara</span>
+                    <span class="hero-badge">🚀 Open to opportunities</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-row" role="list" aria-label="Portfolio statistics">
+            <div class="stat-card fade-in" role="listitem">
+                <div class="stat-number" aria-label="4 active projects">4</div>
+                <div class="stat-label">Active Projects</div>
+            </div>
+            <div class="stat-card fade-in" role="listitem">
+                <div class="stat-number" aria-label="6+ technologies">6+</div>
+                <div class="stat-label">Technologies</div>
+            </div>
+            <div class="stat-card fade-in" role="listitem">
+                <div class="stat-number" aria-label="1 year at university">1</div>
+                <div class="stat-label">Year at UVT</div>
+            </div>
+            <div class="stat-card fade-in" role="listitem">
+                <div class="stat-number" aria-label="100 percent passion">💜</div>
+                <div class="stat-label">Passion for CS</div>
+            </div>
+        </div>
+
+        <section class="fade-in">
+            <h2>Welcome!</h2>
+            <p>
+                Welcome to my personal website. I created this project for the Web Design course at UVT
+                and it reflects my journey as a <span class="hero-highlight">Computer Science student</span>
+                learning to build things for the web.
+            </p>
+            <p>
+                Explore the pages above to find my projects, CV, contact details, and more.
+                You can also interact with the <a href="chatbot.html">portfolio chatbot</a> for a quick overview.
+            </p>
+        </section>
+
+        <section class="fade-in" aria-labelledby="quicklinks-heading">
+            <h2 id="quicklinks-heading">Quick Links</h2>
+                <nav class="quick-links" aria-label="Quick navigation links">
+                    <a href="cv.html" class="quick-link">
+                        <img src="https://img.icons8.com/?size=100&id=4rzOerPFTcOo&format=png&color=000000" class="quick-link-icon" alt="" aria-hidden="true" width="32" height="32">
+                        <span class="quick-link-text">
+                            <span class="quick-link-title">My CV</span>
+                            <span class="quick-link-sub">Education, skills &amp; projects</span>
+                        </span>
+                    </a>
+                    <a href="portfolio.html" class="quick-link">
+                        <img src="https://img.icons8.com/?size=100&id=DizpAwbOfTGB&format=png&color=000000" class="quick-link-icon" alt="" aria-hidden="true" width="32" height="32">
+                        <span class="quick-link-text">
+                            <span class="quick-link-title">Add a Project</span>
+                            <span class="quick-link-sub">Submit to the portfolio table</span>
+                        </span>
+                    </a>
+                    <a href="projects.html" class="quick-link">
+                        <img src="https://img.icons8.com/?size=100&id=cHppp0h3lMK6&format=png&color=000000" class="quick-link-icon" alt="" aria-hidden="true" width="32" height="32">
+                        <span class="quick-link-text">
+                            <span class="quick-link-title">Projects</span>
+                            <span class="quick-link-sub">All technical work</span>
+                        </span>
+                    </a>
+                    <a href="contact.html" class="quick-link">
+                        <img src="https://img.icons8.com/?size=100&id=43608&format=png&color=000000" class="quick-link-icon" alt="" aria-hidden="true" width="32" height="32">
+                        <span class="quick-link-text">
+                            <span class="quick-link-title">Contact</span>
+                            <span class="quick-link-sub">Get in touch</span>
+                        </span>
+                    </a>
+                </nav>
+        </section>
+
+        <section class="fade-in">
+            <h2>My Current Focus</h2>
+            <ul class="focus-list" aria-label="Current learning and development focus areas">
+                <li>
+                    <span class="focus-dot" aria-hidden="true"></span>
+                    <span><strong>C++ &amp; Algorithms</strong> — deepening understanding of data structures, complexity analysis, and competitive-style problem solving.</span>
+                </li>
+                <li>
+                    <span class="focus-dot pink" aria-hidden="true"></span>
+                    <span><strong>Backend Development</strong> — building real APIs with FastAPI, exploring SQLite persistence, and deploying on Oracle Cloud.</span>
+                </li>
+                <li>
+                    <span class="focus-dot green" aria-hidden="true"></span>
+                    <span><strong>Web Design (this course)</strong> — semantic HTML, accessible CSS, JavaScript DOM manipulation, and responsive layouts.</span>
+                </li>
+                <li>
+                    <span class="focus-dot" aria-hidden="true"></span>
+                    <span><strong>SmartShift v3.0</strong> — automating employee scheduling with constraint-solving and a modern React frontend.</span>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Alexandru-Gabriel BUTOI.</p>
+    </footer>
+
+    <script>
+    /* Efect de typewriter */
+    (function () {
+        const el = document.getElementById('typewriter-target');
+        if (!el) return;
+        const words = ['C++', 'Python', 'Reverse Engineering', 'C#','Algorithmic-based Programming', 'JavaScript'];
+        let wi = 0, ci = 0, deleting = false;
+        const SPEED_TYPE = 90, SPEED_DEL = 55, PAUSE = 1600;
+
+        function tick() {
+            const word = words[wi];
+            if (!deleting) {
+                el.textContent = word.slice(0, ++ci);
+                if (ci === word.length) {
+                    deleting = true;
+                    setTimeout(tick, PAUSE);
+                    return;
+                }
+            } else {
+                el.textContent = word.slice(0, --ci);
+                if (ci === 0) {
+                    deleting = false;
+                    wi = (wi + 1) % words.length;
+                }
+            }
+            setTimeout(tick, deleting ? SPEED_DEL : SPEED_TYPE);
+        }
+        setTimeout(tick, 800);
+    })();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+
+body {
+    background: #7c3aed;
+    font-family: "Open Sans", sans-serif;
+    background-attachment: fixed;
+    color: #1f2937;
+    line-height: 1.7;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+}
+
+.business-card-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    padding: 40px 20px;
+}
+
+.business-card {
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(76, 29, 149, 0.25);
+    max-width: 420px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-banner {
+    background: linear-gradient(135deg, #312e81 0%, #7c3aed 60%, #ec4899 100%);
+    height: 110px;
+    width: 100%;
+}
+
+.card-body {
+    padding: 0 32px 32px 32px;
+    text-align: center;
+    margin-top: -60px;
+}
+
+#card-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 5px solid #ffffff;
+    object-fit: cover;
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
+    margin: 0 auto 16px auto;
+}
+
+#card-name {
+    font-family: "Patrick Hand", cursive;
+    font-size: 1.6rem;
+    color: #312e81;
+    margin: 0 0 6px 0;
+    letter-spacing: 0.5px;
+}
+
+.card-specialization {
+    color: #7c3aed;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.card-divider {
+    border: none;
+    border-top: 1px solid #e0d7ff;
+    margin: 20px 0;
+}
+
+.card-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card-link-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    background: #f5f3ff;
+    border: 1px solid #ddd6fe;
+    text-decoration: none;
+    color: #5b21b6;
+    font-weight: 600;
+    font-size: 0.92rem;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.card-link-item:hover,
+.card-link-item:focus {
+    background: #ede9fe;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(124, 58, 237, 0.15);
+    text-decoration: none;
+    color: #4c1d95;
+}
+
+.card-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+    .card-body {
+        padding: 0 20px 24px 20px;
+    }
+
+    #card-name {
+        font-size: 1.35rem;
+    }
+}
