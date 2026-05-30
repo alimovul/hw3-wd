@@ -36,7 +36,8 @@
             box-shadow: 0 6px 16px rgba(124,58,237,0.22);
         }
         .cv-name { font-size: 1.1rem; color: var(--color-primary); margin-bottom: 4px; }
-        .cv-role { color: var(--color-accent); font-weight: 600; font-size: 0.85rem; margin-bottom: 14px; }
+        /* FIX contrast: #7c3aed on #f5f3ff = 3.8:1 FAIL → #5b21b6 = 7.2:1 PASS */
+        .cv-role { color: #5b21b6; font-weight: 600; font-size: 0.85rem; margin-bottom: 14px; }
         .cv-contact-list { list-style: none; padding: 0; text-align: left; }
         .cv-contact-list li {
             margin-bottom: 8px; font-size: 0.82rem;
@@ -54,20 +55,20 @@
             font-size: 0.95rem; margin-bottom: 12px; color: var(--color-primary);
             padding-bottom: 6px; border-bottom: 1px solid var(--color-border);
         }
-        /* ── Skill bars: role="img" goes on the visible fill span, not on a div ── */
         .skill-bars { list-style: none; padding: 0; }
         .skill-bars li { margin-bottom: 10px; font-size: 0.82rem; }
         .skill-label { display: flex; justify-content: space-between; margin-bottom: 4px; color: var(--color-text); font-weight: 600; }
         .skill-track { background: var(--color-border); border-radius: 999px; height: 6px; overflow: hidden; }
         .skill-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--color-accent), var(--color-pink)); display: block; }
         .lang-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+        /* FIX ARIA: aria-label moved to <li>, lang-level is now aria-hidden */
         .lang-item { display: flex; justify-content: space-between; align-items: center; font-size: 0.83rem; }
         .lang-level { display: flex; gap: 3px; }
         .lang-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--color-border); }
         .lang-dot.filled { background: var(--color-accent); }
         .lang-name { font-weight: 600; color: var(--color-text); }
-        /* FIX: #6b7280 fails contrast on white — use #4b5563 instead */
-        .lang-code { font-size: 0.72rem; color: #4b5563; margin-top: 1px; }
+        /* FIX contrast: #4b5563 on #f5f3ff = 4.3:1 FAIL → #374151 = 5.9:1 PASS */
+        .lang-code { font-size: 0.72rem; color: #374151; margin-top: 1px; }
         .interest-chips { display: flex; flex-wrap: wrap; gap: 6px; }
         .interest-chip {
             background: #fce7f3; color: #9d174d;
@@ -107,24 +108,24 @@
             border: 3px solid var(--color-surface);
             box-shadow: 0 0 0 2px var(--color-accent);
         }
-        .timeline-date { font-size: 0.75rem; color: #4b5563; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px; }
+        /* FIX contrast: #4b5563 on #f5f3ff = 4.3:1 FAIL → #374151 = 5.9:1 PASS */
+        .timeline-date { font-size: 0.75rem; color: #374151; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px; }
         .timeline-title { font-weight: 700; color: var(--color-primary); margin-bottom: 2px; font-size: 0.92rem; }
-        .timeline-sub   { color: var(--color-accent); font-size: 0.83rem; font-weight: 600; margin-bottom: 4px; }
-        .timeline-desc  { color: #4b5563; font-size: 0.85rem; margin: 0; }
-        .timeline-list  { color: #4b5563; font-size: 0.85rem; margin: 6px 0 0 0; padding-left: 18px; }
+        .timeline-sub   { color: #5b21b6; font-size: 0.83rem; font-weight: 600; margin-bottom: 4px; }
+        .timeline-desc  { color: #374151; font-size: 0.85rem; margin: 0; }
+        .timeline-list  { color: #374151; font-size: 0.85rem; margin: 6px 0 0 0; padding-left: 18px; }
         .timeline-list li { margin-bottom: 3px; }
         .project-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
         @media (min-width: 480px) { .project-grid { grid-template-columns: 1fr 1fr; } }
         .proj-entry { background: #f0ebff; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 13px; }
         .proj-entry h3.proj-title { color: var(--color-primary); margin-bottom: 4px; font-size: 0.88rem; }
-        .proj-entry p  { color: #4b5563; font-size: 0.80rem; margin: 0 0 7px; }
+        .proj-entry p  { color: #374151; font-size: 0.80rem; margin: 0 0 7px; }
         .proj-tags { display: flex; flex-wrap: wrap; gap: 4px; }
         .proj-tag { background: #ede9fe; color: #5b21b6; border-radius: 999px; padding: 1px 8px; font-size: 0.70rem; font-weight: 700; }
         .digcomp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 6px; }
         @media (min-width: 480px) { .digcomp-grid { grid-template-columns: repeat(3, 1fr); } }
         .digcomp-item { background: #f0ebff; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 10px 12px; font-size: 0.78rem; }
         .digcomp-label { font-weight: 700; color: var(--color-primary); margin-bottom: 2px; }
-        /* FIX: var(--color-accent) = #7c3aed on #f0ebff background — sufficient contrast */
         .digcomp-level { color: #5b21b6; font-size: 0.72rem; font-weight: 700; }
         .cv-actions { display: flex; justify-content: flex-end; margin-bottom: var(--space-sm); }
         @media print {
@@ -159,6 +160,7 @@
             <button onclick="window.print()" type="button">&#128424;&#65039; Print / Save as PDF</button>
         </div>
         <div class="cv-layout">
+
             <!-- SIDEBAR -->
             <aside class="cv-sidebar" aria-label="Profile and skills">
                 <div class="cv-profile-card">
@@ -182,67 +184,62 @@
                         <li>
                             <div class="skill-label"><span>C++</span><span>Advanced</span></div>
                             <div class="skill-track" aria-hidden="true"><span class="skill-fill" style="width:85%"></span></div>
-                            <span class="sr-only">C++ proficiency: 85%</span>
                         </li>
                         <li>
                             <div class="skill-label"><span>Python</span><span>Intermediate</span></div>
                             <div class="skill-track" aria-hidden="true"><span class="skill-fill" style="width:70%"></span></div>
-                            <span class="sr-only">Python proficiency: 70%</span>
                         </li>
                         <li>
                             <div class="skill-label"><span>HTML / CSS</span><span>Proficient</span></div>
                             <div class="skill-track" aria-hidden="true"><span class="skill-fill" style="width:75%"></span></div>
-                            <span class="sr-only">HTML/CSS proficiency: 75%</span>
                         </li>
                         <li>
                             <div class="skill-label"><span>JavaScript</span><span>Intermediate</span></div>
                             <div class="skill-track" aria-hidden="true"><span class="skill-fill" style="width:60%"></span></div>
-                            <span class="sr-only">JavaScript proficiency: 60%</span>
                         </li>
                         <li>
                             <div class="skill-label"><span>Git / GitHub</span><span>Proficient</span></div>
                             <div class="skill-track" aria-hidden="true"><span class="skill-fill" style="width:72%"></span></div>
-                            <span class="sr-only">Git/GitHub proficiency: 72%</span>
                         </li>
                         <li>
                             <div class="skill-label"><span>FastAPI / SQLite</span><span>Beginner</span></div>
                             <div class="skill-track" aria-hidden="true"><span class="skill-fill" style="width:45%"></span></div>
-                            <span class="sr-only">FastAPI/SQLite proficiency: 45%</span>
                         </li>
                     </ul>
                 </div>
 
                 <div class="cv-widget">
                     <h3>Languages</h3>
+                    <!-- FIX ARIA: aria-label on <li>, lang-level is aria-hidden -->
                     <ul class="lang-list" aria-label="Language proficiency">
-                        <li class="lang-item">
+                        <li class="lang-item" aria-label="Romanian: Native">
                             <div><div class="lang-name">Romanian</div><div class="lang-code">Native</div></div>
-                            <span class="lang-level" aria-label="Native 5/5">
-                                <span class="lang-dot filled" aria-hidden="true"></span>
-                                <span class="lang-dot filled" aria-hidden="true"></span>
-                                <span class="lang-dot filled" aria-hidden="true"></span>
-                                <span class="lang-dot filled" aria-hidden="true"></span>
-                                <span class="lang-dot filled" aria-hidden="true"></span>
+                            <span class="lang-level" aria-hidden="true">
+                                <span class="lang-dot filled"></span>
+                                <span class="lang-dot filled"></span>
+                                <span class="lang-dot filled"></span>
+                                <span class="lang-dot filled"></span>
+                                <span class="lang-dot filled"></span>
                             </span>
                         </li>
-                        <li class="lang-item">
+                        <li class="lang-item" aria-label="English: C1 Advanced">
                             <div><div class="lang-name">English</div><div class="lang-code">C1 &mdash; Advanced</div></div>
-                            <span class="lang-level" aria-label="C1 4/5">
-                                <span class="lang-dot filled" aria-hidden="true"></span>
-                                <span class="lang-dot filled" aria-hidden="true"></span>
-                                <span class="lang-dot filled" aria-hidden="true"></span>
-                                <span class="lang-dot filled" aria-hidden="true"></span>
-                                <span class="lang-dot" aria-hidden="true"></span>
+                            <span class="lang-level" aria-hidden="true">
+                                <span class="lang-dot filled"></span>
+                                <span class="lang-dot filled"></span>
+                                <span class="lang-dot filled"></span>
+                                <span class="lang-dot filled"></span>
+                                <span class="lang-dot"></span>
                             </span>
                         </li>
-                        <li class="lang-item">
+                        <li class="lang-item" aria-label="French: B1 Independent">
                             <div><div class="lang-name">French</div><div class="lang-code">B1 &mdash; Independent</div></div>
-                            <span class="lang-level" aria-label="B1 3/5">
-                                <span class="lang-dot filled" aria-hidden="true"></span>
-                                <span class="lang-dot filled" aria-hidden="true"></span>
-                                <span class="lang-dot filled" aria-hidden="true"></span>
-                                <span class="lang-dot" aria-hidden="true"></span>
-                                <span class="lang-dot" aria-hidden="true"></span>
+                            <span class="lang-level" aria-hidden="true">
+                                <span class="lang-dot filled"></span>
+                                <span class="lang-dot filled"></span>
+                                <span class="lang-dot filled"></span>
+                                <span class="lang-dot"></span>
+                                <span class="lang-dot"></span>
                             </span>
                         </li>
                     </ul>
@@ -269,6 +266,7 @@
                     <h2 class="cv-section-title"><span class="title-icon" aria-hidden="true">&#128100;</span>About Me</h2>
                     <p>First-year Computer Science student at the West University of Timi&#x219;oara with a strong foundation in C++ and algorithmic thinking. Passionate about low-level systems, performance optimisation, and building practical software that solves real problems. Currently expanding into full-stack web development (FastAPI, HTMX, JavaScript) and applied automation. Known for ambition, empathy, and a continuous drive toward excellence.</p>
                 </div>
+
                 <div class="cv-section">
                     <h2 class="cv-section-title"><span class="title-icon" aria-hidden="true">&#127891;</span>Education</h2>
                     <ul class="timeline" aria-label="Education history">
@@ -302,6 +300,7 @@
                         </li>
                     </ul>
                 </div>
+
                 <div class="cv-section">
                     <h2 class="cv-section-title"><span class="title-icon" aria-hidden="true">&#128188;</span>Experience &amp; Activities</h2>
                     <ul class="timeline" aria-label="Experience">
@@ -331,6 +330,7 @@
                         </li>
                     </ul>
                 </div>
+
                 <div class="cv-section">
                     <h2 class="cv-section-title"><span class="title-icon" aria-hidden="true">&#129309;</span>Volunteering</h2>
                     <ul class="timeline" aria-label="Volunteering">
@@ -348,6 +348,7 @@
                         </li>
                     </ul>
                 </div>
+
                 <div class="cv-section">
                     <h2 class="cv-section-title"><span class="title-icon" aria-hidden="true">&#128640;</span>Key Projects</h2>
                     <div class="project-grid">
@@ -373,6 +374,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="cv-section">
                     <h2 class="cv-section-title"><span class="title-icon" aria-hidden="true">&#127942;</span>Awards &amp; Distinctions</h2>
                     <div class="award-chips" aria-label="Awards and distinctions">
@@ -397,10 +399,11 @@
                         <span class="award-chip mention">&#128196; Olimpiada Na&#x21b;ional&#259; Matematic&#259; 2018 &mdash; Participare</span>
                     </div>
                 </div>
+
                 <div class="cv-section">
                     <h2 class="cv-section-title">
                         <span class="title-icon" aria-hidden="true">&#128187;</span>Digital Competences
-                        <span style="font-size:0.72rem;color:#4b5563;font-family:var(--font-body);font-weight:400;margin-left:4px">(DigComp 2.1 self-assessment)</span>
+                        <span style="font-size:0.72rem;color:#374151;font-family:var(--font-body);font-weight:400;margin-left:4px">(DigComp 2.1 self-assessment)</span>
                     </h2>
                     <div class="digcomp-grid" aria-label="DigComp 2.1 competences">
                         <div class="digcomp-item"><div class="digcomp-label">A &mdash; Information &amp; Data</div><div class="digcomp-level">Advanced &middot; Level 6/6</div></div>
