@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alexandru-Gabriel BUTOI | Homepage</title>
+    <meta name="description" content="Personal portfolio of Alexandru-Gabriel BUTOI — Computer Science student at West University of Timișoara. Projects, CV, and contact.">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +23,6 @@
             overflow: hidden;
             box-shadow: 0 16px 40px rgba(76,29,149,0.3);
         }
-
         .hero::before, .hero::after {
             content: '';
             position: absolute;
@@ -33,7 +33,6 @@
         }
         .hero::before { width: 280px; height: 280px; top: -80px; right: -60px; }
         .hero::after  { width: 160px; height: 160px; bottom: -50px; left: 60px; }
-
         .hero-avatar {
             width: 120px;
             height: 120px;
@@ -46,47 +45,38 @@
             z-index: 1;
             animation: float 4s ease-in-out infinite;
         }
-
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50%       { transform: translateY(-8px); }
         }
-
         .hero-text { flex: 1; min-width: 200px; position: relative; z-index: 1; }
-
         .hero-text h2 {
             color: #fff;
             font-size: 1.8rem;
             margin-bottom: 6px;
             text-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
-
         .hero-tagline {
-            color: rgba(255,255,255,0.85);
+            color: #ffffff;
             font-size: 1rem;
             margin-bottom: 20px;
         }
-
         .hero-badges {
             display: flex;
             gap: 8px;
             flex-wrap: wrap;
         }
-
         .hero-badge {
-            background: rgba(255,255,255,0.18);
-            color: #fff;
+            background: rgba(255,255,255,0.22);
+            color: #ffffff;
             border-radius: 999px;
             padding: 5px 14px;
             font-size: 0.82rem;
             font-weight: 700;
-            border: 1px solid rgba(255,255,255,0.3);
+            border: 1.5px solid rgba(255,255,255,0.5);
             backdrop-filter: blur(4px);
         }
-
-        .typewriter {
-            display: inline;
-        }
+        .typewriter { display: inline; }
         .cursor {
             display: inline-block;
             width: 2px;
@@ -100,14 +90,12 @@
             0%, 100% { opacity: 1; }
             50%       { opacity: 0; }
         }
-
         .stats-row {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: var(--space-sm);
             margin-bottom: var(--space-md);
         }
-
         .stat-card {
             background: var(--color-surface);
             border: 1px solid var(--color-border);
@@ -118,12 +106,10 @@
             transition: transform 0.2s, box-shadow 0.2s;
             cursor: default;
         }
-
         .stat-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-md);
         }
-
         .stat-number {
             font-family: var(--font-display);
             font-size: 2rem;
@@ -131,20 +117,17 @@
             line-height: 1;
             margin-bottom: 4px;
         }
-
         .stat-label {
             font-size: 0.82rem;
-            color: var(--color-muted);
+            color: #4b5563;
             font-weight: 600;
         }
-
         .quick-links {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: var(--space-sm);
             margin-top: var(--space-sm);
         }
-
         .quick-link {
             display: flex;
             align-items: center;
@@ -159,7 +142,6 @@
             transition: all 0.2s;
             box-shadow: var(--shadow-sm);
         }
-
         .quick-link:hover, .quick-link:focus {
             border-color: var(--color-accent);
             background: #ede9fe;
@@ -168,28 +150,25 @@
             text-decoration: none;
             color: var(--color-primary);
         }
-
         .quick-link-icon {
-            font-size: 1.4rem;
+            width: 32px;
+            height: 32px;
             flex-shrink: 0;
+            object-fit: contain;
         }
-
         .quick-link-text {
             display: flex;
             flex-direction: column;
         }
-
         .quick-link-title {
             font-size: 0.9rem;
             color: var(--color-primary);
         }
-
         .quick-link-sub {
             font-size: 0.75rem;
-            color: var(--color-muted);
+            color: #4b5563;
             font-weight: 400;
         }
-
         .focus-list { list-style: none; padding: 0; margin: 0; }
         .focus-list li {
             display: flex;
@@ -208,9 +187,8 @@
             flex-shrink: 0;
             margin-top: 5px;
         }
-        .focus-dot.pink { background: var(--color-pink); }
+        .focus-dot.pink  { background: var(--color-pink); }
         .focus-dot.green { background: var(--color-green); }
-
         .fade-in {
             opacity: 0;
             transform: translateY(18px);
@@ -221,11 +199,9 @@
         .fade-in:nth-child(3) { animation-delay: 0.25s; }
         .fade-in:nth-child(4) { animation-delay: 0.35s; }
         .fade-in:nth-child(5) { animation-delay: 0.45s; }
-
         @keyframes fadeUp {
             to { opacity: 1; transform: none; }
         }
-
         .hero-highlight {
             display: inline-block;
             background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
@@ -236,7 +212,6 @@
             font-size: 1.1rem;
             font-weight: 700;
         }
-
         @media (max-width: 520px) {
             .hero { padding: 32px 20px; }
             .hero-text h2 { font-size: 1.4rem; }
@@ -245,14 +220,11 @@
     </style>
 </head>
 <body>
-
     <a href="#main-content" class="skip-link">Skip to main content</a>
-
     <header>
         <h1>Alexandru-Gabriel BUTOI</h1>
         <p>Personal Portfolio &mdash; Computer Science Student, West University of Timi&#x219;oara, 1st Year</p>
     </header>
-
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -266,10 +238,9 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
-
     <main id="main-content">
 
-        <div class="hero fade-in" role="banner" aria-label="Profile banner">
+        <div class="hero fade-in" aria-label="Profile banner">
             <img
                 src="photo.jpeg"
                 alt="Alexandru-Gabriel BUTOI"
@@ -277,35 +248,35 @@
                 loading="eager"
             >
             <div class="hero-text">
-                <h2>Hi, I'm Ali 👋</h2>
+                <h2>Hi, I'm Ali &#128075;</h2>
                 <p class="hero-tagline">
                     Building things with
-                    <span id="typewriter-target" class="typewriter" aria-label="C++, Python, and the web">C++</span><span class="cursor" aria-hidden="true"></span>
+                    <span id="typewriter-target" class="typewriter">C++</span><span class="cursor" aria-hidden="true"></span>
                 </p>
-                <div class="hero-badges">
-                    <span class="hero-badge">🎓 CS @ UVT</span>
-                    <span class="hero-badge">🔧 1st Year</span>
-                    <span class="hero-badge">📍 Timișoara</span>
-                    <span class="hero-badge">🚀 Open to opportunities</span>
+                <div class="hero-badges" aria-label="Quick facts">
+                    <span class="hero-badge">&#127891; CS @ UVT</span>
+                    <span class="hero-badge">&#128296; 1st Year</span>
+                    <span class="hero-badge">&#128205; Timi&#x219;oara</span>
+                    <span class="hero-badge">&#128640; Open to opportunities</span>
                 </div>
             </div>
         </div>
 
         <div class="stats-row" role="list" aria-label="Portfolio statistics">
             <div class="stat-card fade-in" role="listitem">
-                <div class="stat-number" aria-label="4 active projects">4</div>
+                <div class="stat-number">4</div>
                 <div class="stat-label">Active Projects</div>
             </div>
             <div class="stat-card fade-in" role="listitem">
-                <div class="stat-number" aria-label="6+ technologies">6+</div>
+                <div class="stat-number">6+</div>
                 <div class="stat-label">Technologies</div>
             </div>
             <div class="stat-card fade-in" role="listitem">
-                <div class="stat-number" aria-label="1 year at university">1</div>
+                <div class="stat-number">1</div>
                 <div class="stat-label">Year at UVT</div>
             </div>
             <div class="stat-card fade-in" role="listitem">
-                <div class="stat-number" aria-label="100 percent passion">💜</div>
+                <div class="stat-number" aria-hidden="true">&#128156;</div>
                 <div class="stat-label">Passion for CS</div>
             </div>
         </div>
@@ -325,36 +296,36 @@
 
         <section class="fade-in" aria-labelledby="quicklinks-heading">
             <h2 id="quicklinks-heading">Quick Links</h2>
-                <nav class="quick-links" aria-label="Quick navigation links">
-                    <a href="cv.html" class="quick-link">
-                        <img src="https://img.icons8.com/?size=100&id=4rzOerPFTcOo&format=png&color=000000" class="quick-link-icon" alt="" aria-hidden="true" width="32" height="32">
-                        <span class="quick-link-text">
-                            <span class="quick-link-title">My CV</span>
-                            <span class="quick-link-sub">Education, skills &amp; projects</span>
-                        </span>
-                    </a>
-                    <a href="portfolio.html" class="quick-link">
-                        <img src="https://img.icons8.com/?size=100&id=DizpAwbOfTGB&format=png&color=000000" class="quick-link-icon" alt="" aria-hidden="true" width="32" height="32">
-                        <span class="quick-link-text">
-                            <span class="quick-link-title">Add a Project</span>
-                            <span class="quick-link-sub">Submit to the portfolio table</span>
-                        </span>
-                    </a>
-                    <a href="projects.html" class="quick-link">
-                        <img src="https://img.icons8.com/?size=100&id=cHppp0h3lMK6&format=png&color=000000" class="quick-link-icon" alt="" aria-hidden="true" width="32" height="32">
-                        <span class="quick-link-text">
-                            <span class="quick-link-title">Projects</span>
-                            <span class="quick-link-sub">All technical work</span>
-                        </span>
-                    </a>
-                    <a href="contact.html" class="quick-link">
-                        <img src="https://img.icons8.com/?size=100&id=43608&format=png&color=000000" class="quick-link-icon" alt="" aria-hidden="true" width="32" height="32">
-                        <span class="quick-link-text">
-                            <span class="quick-link-title">Contact</span>
-                            <span class="quick-link-sub">Get in touch</span>
-                        </span>
-                    </a>
-                </nav>
+            <nav class="quick-links" aria-label="Quick navigation links">
+                <a href="cv.html" class="quick-link">
+                    <img src="https://img.icons8.com/?size=100&id=4rzOerPFTcOo&format=png&color=000000" class="quick-link-icon" alt="" aria-hidden="true" width="32" height="32" loading="lazy">
+                    <span class="quick-link-text">
+                        <span class="quick-link-title">My CV</span>
+                        <span class="quick-link-sub">Education, skills &amp; projects</span>
+                    </span>
+                </a>
+                <a href="portfolio.html" class="quick-link">
+                    <img src="https://img.icons8.com/?size=100&id=DizpAwbOfTGB&format=png&color=000000" class="quick-link-icon" alt="" aria-hidden="true" width="32" height="32" loading="lazy">
+                    <span class="quick-link-text">
+                        <span class="quick-link-title">Add a Project</span>
+                        <span class="quick-link-sub">Submit to the portfolio table</span>
+                    </span>
+                </a>
+                <a href="projects.html" class="quick-link">
+                    <img src="https://img.icons8.com/?size=100&id=cHppp0h3lMK6&format=png&color=000000" class="quick-link-icon" alt="" aria-hidden="true" width="32" height="32" loading="lazy">
+                    <span class="quick-link-text">
+                        <span class="quick-link-title">Projects</span>
+                        <span class="quick-link-sub">All technical work</span>
+                    </span>
+                </a>
+                <a href="contact.html" class="quick-link">
+                    <img src="https://img.icons8.com/?size=100&id=43608&format=png&color=000000" class="quick-link-icon" alt="" aria-hidden="true" width="32" height="32" loading="lazy">
+                    <span class="quick-link-text">
+                        <span class="quick-link-title">Contact</span>
+                        <span class="quick-link-sub">Get in touch</span>
+                    </span>
+                </a>
+            </nav>
         </section>
 
         <section class="fade-in">
@@ -380,20 +351,17 @@
         </section>
 
     </main>
-
     <footer>
         <p>&copy; 2026 Alexandru-Gabriel BUTOI.</p>
     </footer>
-
     <script>
     /* Efect de typewriter */
     (function () {
         const el = document.getElementById('typewriter-target');
         if (!el) return;
-        const words = ['C++', 'Python', 'Reverse Engineering', 'C#','Algorithmic-based Programming', 'JavaScript'];
+        const words = ['C++', 'Python', 'Reverse Engineering', 'C#', 'Algorithmic-based Programming', 'JavaScript'];
         let wi = 0, ci = 0, deleting = false;
         const SPEED_TYPE = 90, SPEED_DEL = 55, PAUSE = 1600;
-
         function tick() {
             const word = words[wi];
             if (!deleting) {
@@ -415,6 +383,5 @@
         setTimeout(tick, 800);
     })();
     </script>
-
 </body>
 </html>
